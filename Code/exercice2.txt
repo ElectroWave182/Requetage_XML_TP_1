@@ -1,0 +1,44 @@
+Requêtes XPath
+
+
+1)
+doc ("books.xml") /catalog /book
+
+2)
+//book
+
+3)
+//book /title
+
+4)
+//book /@id
+
+5)
+//book [4] /*
+
+6)
+//book [position () <= 5] /title
+
+7)
+//book [genre = "Computer"] /title
+
+8)
+//book [genre = "Computer" and price < 40]
+
+9)
+//book [onsale]
+
+10)
+//book [author = "Corets, Eva"] /title | //book [author = "Corets, Eva"] /description
+
+11)
+XPath 1.0 : sum (//book /price) div count (//book [price])
+XPath 2.0 : avg (//book /price)
+
+12)
+XPath 1.0 : //book [substring (publish_date, 1, 5) = "2001-"] /title
+XPath 2.0 : //book [year-from-date (publish_date) = 2001] /title
+
+13)
+XPath 1.0 : (//book [not (price < //book /price)]) [1]
+XPath 2.0 : (//book [price = max (//book /price)]) [1]
